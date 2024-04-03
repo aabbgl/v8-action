@@ -34,8 +34,8 @@ jobs:
     - name: init env
       run: |
         sudo apt-get update
-        sudo apt-get -y install pkg-config git subversion curl wget build-essential python2 xz-utils zip p7zip-full 
-    
+        sudo apt-get -y install pkg-config git subversion curl wget build-essential python2.7 xz-utils zip p7zip-full 
+        sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7  1
     # get depot_tools
     - name: depot_tools
       run: |
@@ -73,6 +73,7 @@ jobs:
         
     - name: build v8
       run: |
+        git config --global http.postBuffer 524288000
         source ~/.bash_profile
         gclient sync -f
     
