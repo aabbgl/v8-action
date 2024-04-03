@@ -39,7 +39,7 @@ jobs:
     # get depot_tools
     - name: depot_tools
       run: |
-        git config http.postBuffer 524288000
+        git config --global http.postBuffer 524288000
         git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
         echo export PATH=\"\$PATH:`pwd`/depot_tools/\" >> ~/.bash_profile
     
